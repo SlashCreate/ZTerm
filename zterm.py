@@ -49,6 +49,7 @@ while True:
       print(' --clr                Clears screen')
       print(' --folder             Lists all files and folders')
       print(' --help`<cmd>         Opens help screen')
+      print(' --zx`<file>          Runs <file> as ZXscript')
     if len(args) == 2:
       if args[1] == '--str':
         print('Colors: (optinal, for <c>)')
@@ -105,6 +106,12 @@ while True:
       print(txt.red + 'Could not find argument(s)' + txt.end)
   elif cmd.startswith('') == True:
     pass
+  elif cmd == '--zx':
+    myfile = open(args[1], "r")
+    for line in myfile:
+      a = line.split(' .')
+      if a[0] == 'print':
+        print(a[1])
+    myfile.close()  
   else:
       print(txt.white + 'Could not find command ' + txt.end + cmd)
-  
